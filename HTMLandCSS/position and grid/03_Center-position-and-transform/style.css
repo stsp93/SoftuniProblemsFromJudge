@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(238, 238, 238);
+}
+.card {
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px 2px rgb(0, 0, 0,0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card div:last-child {
+    padding: 20px;
+}
+img{
+    width: 100%;
+    position: absolute;
+    transform: translate(0, -100%);
+}
+h3{
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 1em;
+}
+p {
+
+}
+a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #019904;
+    color: #fff; 
+    padding: 5px 10px;
+    margin: 10px;
+    left: 100%;
+    transform: translate(-130%, 0);
+}
