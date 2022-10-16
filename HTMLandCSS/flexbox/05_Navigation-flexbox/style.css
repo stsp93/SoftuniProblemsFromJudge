@@ -1,0 +1,39 @@
+html {
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    border-bottom: 2px solid rgb(0,0,0);
+    width:80vw;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+
+h1 {
+    text-transform: uppercase;
+}
+
+ul {
+    display: flex;
+    gap: 15px;
+    list-style-type: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: rgb(0,153,0);
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
