@@ -1,0 +1,23 @@
+@media screen and (max-width:768px) {
+    .gallery * {
+        display: block;
+        width: 100%;
+    }
+    .wrapper.style2 {
+        padding: 1rem;
+    }
+    .wrapper > header h2:after {
+        width: 35%;
+    }
+    .spotlight {
+        flex-direction: column;
+    }
+    .spotlight > * {
+        width: 100%;
+    }
+
+    .spotlight .inner {
+        padding: 1.8rem;
+        text-align: center;
+    }
+}

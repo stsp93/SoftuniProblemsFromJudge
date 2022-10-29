@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Lato", sans-serif;
+}
+
+.wrapper {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.link--cta:link, .link--cta:visited {
+  background-color: #ffa000;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+.link--main:link,.link--main:visited  {
+    padding: 5px 70px;
+}
+/* HEADER */
+
+header {
+    background-color: #234465;
+    padding: 10px 250px;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__logo {
+  max-width: 150px;
+}
+nav {
+    display: flex;
+    align-items: center;
+}
+.nav__ul {
+    display: flex;
+  gap: 20px;
+}
+
+.nav__ul li a {
+    color: #91a1b2;
+    font-weight: 600;
+}
+
+/* Container after header */
+
+.container {
+    display: flex;
+    gap: 10px;
+    padding: 0 250px;
+}
+
+.container a {
+  color: #ffa000;
+  padding: 10px;
+}
+a.container--active {
+  color: #234465;
+  border-bottom: 1px solid #234465;
+  font-weight: bold;
+}
+
+/* Main */
+main {
+  padding: 20px 240px;
+  color: #264665;
+  line-height: 1.7;
+}
+
+.main__title {
+    background-color: #234465;
+    color: #fff;
+  text-align: center;
+  padding: 30px 240px;
+}
+
+.main__title h1 {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.main__title ul {
+    display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.main__title li {
+    display: flex;
+    font-size: 24px;
+  gap: 5px;
+}
+/* Main content */
+
+.main__content__container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+
+  font-size: 24px;
+
+  background-color: #f2f2f2;
+  margin-bottom: 20px;
+  padding: 40px;
+}
+
+.content__title,
+.link--main {
+    align-self: center;
+    font-size: 24px;
+}
+.link--main:link{
+    padding:10px 150px;
+}
+
+.content__title {
+    text-align: center;
+    border-bottom: 5px solid #ffa000;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.skills i {
+  color: #ffa000;
+  margin-right: 5px;
+}
+
+.topics ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: space-around;
+  column-gap: 40px;
+  row-gap: 20px;
+
+  margin: 30px 0;
+}
+
+.topics li {
+  background-color: #dadada;
+  padding: 5px;
+  padding-left: 20px;
+  font-weight: bold;
+  border-left: 5px solid #234465;
+}
+
+.main__content__container--active {
+  color: #fff;
+  background-color: #ffa000;
+}
+
+.main__content__container--active .content__title {
+  border-bottom: 5px solid #fff;
+}
+
+.when {
+    gap: 0;
+    padding-bottom: 70px;
+}
+.when h3{
+    color: #ffa000;
+}
+.when p {
+    margin-bottom: 15px;
+}
+
+.additional-info {
+    display: flex;
+    gap: 150px;
+
+    position: relative;
+    background-color: #234465;
+    color: #fff;
+}
+.additional-info h3 {
+    margin: 5px 20px;
+    color: #fff;
+}
+.additional-info ul {
+    list-style: disc;
+}
+
+.additional-info aside {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+
+    background-color: #ffa000;
+
+    display: flex;
+    gap: 250px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.332);
+}
+
+.add-wrapper {
+    padding: 15px;
+}
+
+.teacher {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.teacher img {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+}
+
+.teacher__title{
+    margin-left: 210px;
+}
+
+.final--cta{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* footer */
+
+.footer__container{
+    padding: 20px 240px;
+    color: #fff;
+    background-color: #162B40;
+    line-height: 1.8;
+
+}
+
+.footer__main-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__container h4 {
+    color: #ffa000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.social {
+    display: flex;
+    gap:10px
+}
+
+.credits {
+    color: #7D8894;
+}
