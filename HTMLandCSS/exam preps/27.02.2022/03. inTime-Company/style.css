@@ -1,0 +1,289 @@
+:root {
+    --blue:#008CBA;
+    --sub-blue:#6BBFFF;
+    --bc-light-gray:#EEF0F1;
+    --bc-gray:#393F43;
+    --button-gray:#454545;
+    --bc-dark-gray:#2F3539;
+    --copyrt-gray: #262B2F;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    color: #454545;
+}
+
+a {
+    text-decoration: none;
+    color: #454545;
+}
+
+
+/* Footer */
+
+footer  {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+footer h2 {
+    font-size: 40px;
+    font-weight: 500;
+}
+footer h2 strong {
+    color: #6BBFFF;
+    font-weight: 500;
+}
+
+nav {
+    font-size: 24px;
+    display: flex;
+    gap: 30px;
+}
+
+link--selected{
+    border-bottom: 3px solid #008CBA;
+}
+
+/*             Main              */
+
+/* Hero */
+
+.hero img {
+    position: relative;
+    width: 100%;
+}
+
+.hero-info {
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    
+    background-color: rgba(0, 0, 0, 0.605);
+    color: #fff;
+    font-size: 60px;
+    padding: 30px;
+
+}
+
+.cta {
+    padding: 15px 40px;
+    border-radius: 50px;
+}
+
+.hero-info a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #008CBA;
+    font-size: 44px;
+}
+
+/* welcome article */
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 40px;
+}
+
+.welcome h2 ,.services h2{
+    padding: 10px;
+    font-size: 44px;
+}
+.welcome h2:after {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 25%;
+    padding: 5px;
+    border-bottom: 5px solid #008CBA;
+}
+
+.welcome p {
+    line-height: 1.3;
+    font-size: 24px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.welcome a {
+    font-size: 24px;
+    background-color: #454545;
+    color: #fff;
+}
+
+/* Services */
+
+.services {
+    background-color: var(--bc-light-gray);
+    padding: 20px;
+}
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.services h2:after {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 7%;
+    padding: 5px;
+    border-bottom: 5px solid var(--bc-gray);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.card {
+    width: 25%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 24px;
+
+    list-style: none;
+    padding-bottom: 40px;
+}
+
+.card h4 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.card img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.card p {
+    margin-bottom: 30px;
+}
+
+.card a{
+    background-color: var(--button-gray);
+    color: #fff;
+    padding: 10px 30px;
+}
+
+/* footer */
+
+footer {
+    background-color: #393F43;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding:40px 0 0 0;
+}
+
+.subscribe {
+    text-align: center;
+    width: 50%;
+    font-size: 20px;
+}
+.subscribe h2:after{
+    content: "";
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 20%;
+    padding: 5px;
+    border-bottom: 3px solid #fff;
+}
+
+.subscribe p {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+form input, form a {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+
+form input {
+    width: 75%;
+    background-color: #545A5E;
+    border: none;
+}
+
+form a{
+    color: #fff;
+    background-color: #6BBFFF;
+    width: 20%;
+}
+
+
+/* footer nav */
+
+.footer-nav {
+    background-color: #2F3539;
+    color: #fff;
+    width: 100%;
+    padding: 40px;
+
+    display: flex;
+    justify-content: space-around;
+
+}
+.footer-nav ul {
+    list-style: none;
+
+}
+
+.footer-nav ul li:first-child {
+    margin-bottom: 30px;
+}
+
+.footer-nav ul li {
+    margin-bottom: 20px;
+}
+
+.footer-nav ul a {
+    color: #fff;
+    
+}
+
+.social{
+    display: flex;
+    gap: 10px;
+}
+
+.copyright {
+    background-color: #262B2F;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+.copyright strong {
+    color: #008CBA;
+}
+
+
