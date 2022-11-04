@@ -1,0 +1,59 @@
+@media screen and (max-width:600px) {
+    header .avatar img {
+        width: 15em;
+    }
+    
+    .thumbnails {
+        flex-direction: column;
+        margin: 0;
+        gap: 3em;
+        margin-bottom: 6em;
+    }
+    span.avatar {
+        margin-bottom: 3.5em;
+    }
+
+    .icon.style2:before {
+        font-size: 2.5em;
+    }
+    ul.icons li {
+        padding-right: 1.5em;
+    }
+
+    header {
+        padding-bottom: 10em;
+    }
+
+    h1 {
+        font-size: 2.6em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    .thumbnails a h3 {
+        margin: 0.66em;
+    }
+
+    .thumbnails > div {
+        padding: 0;
+        width: 100%;
+        gap: 1em;
+    }
+    
+    .thumbnails a {
+        height: 390px;
+    }
+    
+    .thumbnails a img {
+        width: 100%;
+        height: 80%;
+        object-fit: fill;
+    }
+
+    footer p{
+        font-size: 1.5em;
+    }
+    footer::before {
+        width: 15em;
+    }
+}
