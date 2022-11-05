@@ -1,0 +1,187 @@
+:root {
+  --text: #2c383b;
+  --bc-light-gray: #ececec;
+  --bc-dark-gray: #383838;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: #2c383b;
+}
+
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  border-right: 1px solid;
+  padding-right: 20px;
+
+  font-size: 55px;
+
+}
+
+.sub-title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.header__nav a {
+  background-color: #ececec;
+  padding: 30px;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+a.selected {
+  background-color: #e24e2a;
+  color: #fff;
+}
+
+/* HERO */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-img {
+  object-fit: cover;
+
+  width: 100%;
+  height: 680px;
+}
+
+.hero__text {
+  background-color: #e24e2a;
+  color: #fff;
+  padding: 60px 200px 60px 200px;
+
+  font-size: 22px;
+  line-height: 2;
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* FEATURES */
+
+.features {
+  background-color: #383838;
+  padding: 120px;
+}
+
+.feature__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature {
+    width: 20%;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 150px;
+    height: 150px;
+    background-color: #e24e2a;
+    margin-bottom: 10px;
+}
+
+.icon-wrapper i {
+    color: #fff;
+    font-size: 100px;
+}
+
+.feature__title {
+    color: #fff;
+  font-size: 24px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #474747;
+}
+
+.feature-text {
+    line-height: 1.8;
+    color: #635a52;
+    font-size: 24px;
+}
+
+/* CTA */
+
+.cta {
+  padding: 120px;
+  text-align: center;
+}
+
+.cta__title {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.cta-text {
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+.cta-btn {
+  color: #fff;
+  background-color: #1b9772;
+  padding: 30px 80px;
+
+  font-size: 26px;
+}
+
+/* SEC FEATURES */
+
+
+.sec-feature-title {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 80px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 120px;
+    background-color: #1b9772;
+    
+    text-align: center;
+}
+
+.copyrights {
+    color: #53B497;
+    font-size: 20px;
+    letter-spacing: 2px;
+
+}
+
+.copyrights strong {
+    color: #7BCCC1;
+}
