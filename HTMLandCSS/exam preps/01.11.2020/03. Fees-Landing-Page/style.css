@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* 
+font-family: 'Lato', sans-serif; text
+font-family: 'Montserrat', sans-serif; headings
+ */
+
+
+
+ body {
+    font-family: 'Lato', sans-serif;
+    color: #54546D;
+    letter-spacing: 1px;
+ }
+
+ h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat', sans-serif;
+ }
+
+ /* footer */
+
+header {
+    padding: 20px 140px 20px 120px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+ .header__logo {
+    width: 10%;
+ }
+
+header nav {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* HERO*/
+
+.hero {
+    background-image: url('./images/calculator-icon.svg');
+    background-repeat: no-repeat;
+    background-position:-2% 30% ;
+    background-color: #54546D;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    height: 460px;
+    margin-bottom: 350px;
+}
+.hero__title {
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: 400;
+
+}
+
+.cards {
+    position: absolute;
+    top: 50%;
+
+    display: flex;
+    gap: 40px;
+
+    width: 88%;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+
+    width: 35%;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card__body {
+    
+    padding: 40px 20px;
+}
+
+.card__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.card p {
+    font-size: 24px;
+}
+
+.card .card-1-text {
+    font-size: 26px;
+    margin-bottom: 80px;
+}
+
+.btn-apply {
+    color: #fff;
+    background-color: #9A5DC6;
+    padding: 20px 60px;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.card__footer {
+    color: #fff;
+    width: 100%;
+    padding: 32px 10px;
+    font-size: 30px;
+    
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card1 {
+    background:linear-gradient(to top left, #4BD680, #029A3C);
+}
+
+.card1 h4 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.card2{
+    background:linear-gradient(to top left, #619ACF, #4C6B87);
+}
+.card3{
+    background:linear-gradient(to top left, #8C7DE1, #4A37A5);
+}
+
+.card2, .card3 {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.price {
+    width: 45%;
+}
+
+.price h4 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 10px;
+}
+
+.price p {
+    font-size: 22px;
+}
+
+.vert-div {
+    width: 1px;
+    height: 100px;
+    background-color: #fff;
+}
+
+
+/* Features */
+
+.features {
+    width: 75%;
+    margin: auto;
+    font-size: 22px;
+    margin-bottom: 120px;
+}
+
+.features__title {
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.features__text {
+    font-size: 20px;
+    margin-bottom: 60px;
+    font-size: 22px;
+}
+
+.features__list {
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+}
+
+.feature__row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+    max-width: 100%;
+    font-size: 22px;
+}
+.feature__row:nth-child(odd) {
+    background-color: #E6E6E6;
+}
+
+.feat__icons {
+    color: #12A945;
+    font-size: 32px;
+    width: 27%;
+    display: flex;
+    gap: 220px;
+}
+
+.fa-xmark {
+    color: #FC4C50;
+}
+
+/* BANK */
+
+.bank {
+    width: 88%;
+    margin: auto;
+    margin-bottom: 120px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.bank__info {
+    width: 65%;
+}
+
+.bank__title {
+    font-size: 33px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.bank__text {
+    line-height: 1.3;
+    font-size: 22px;
+}
+
+.bank__img{
+    object-fit: contain;
+    width: 26%;
+}
+
+/* footer */
+
+footer {
+    background-color: #54546D;
+    padding: 40px 0;
+}
+
+.copyrights{
+    color: #8C8FA4;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+
+
+
