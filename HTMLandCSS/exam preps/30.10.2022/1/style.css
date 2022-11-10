@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 1350px;
+    margin: 90px auto;
+}
+
+.main-img {
+    width: 50%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 0 15px 20px 2px rgba(0, 0, 0, 0.6);
+}
+
+.calculator {
+    width: 50%;
+    background-color: #F6F7F8;
+    padding: 50px;
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 20px 2px rgba(0, 0, 0, 0.6);
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+.btns {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btns * {
+    border-radius: 10px;
+    border: 1px solid #626262;
+    padding: 10px;
+
+    width: 30%;
+    font-size: 16px;
+}
+
+.us {
+    background-color: #86D862;
+}
+.metric {
+    background-color: #E0E0DF;
+}
+
+.form-gender-label {
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.gender-select-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.gender-select-wrapper * {
+    width: 33%;
+    margin-bottom: 30px;
+}
+
+label {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+input {
+border-radius: 3px;
+}
+
+.weight-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weight-container input {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.height-inputs{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.height-inputs input {
+    width: 47%;
+    padding: 3px;
+    margin-bottom: 80px;
+}
+
+
+.calculate {
+    border-radius: 50px;
+
+    color: #fff;
+    background-color: #05A2D3;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}

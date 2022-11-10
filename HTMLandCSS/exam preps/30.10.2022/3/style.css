@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* fonts
+font-family: 'PT Sans', sans-serif;
+font-family: 'PT Serif', serif;
+ */
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+/* HEADER */
+
+header {
+    background-color: #D01919;
+    color: #fff;
+
+    position: absolute;
+    width: 100%;
+    padding: 20px 55px;
+
+}
+
+.header__nav {  
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.header__nav i {
+    margin-right: 8px;
+}
+
+/* HERO */
+
+.hero {
+    background-image: url('./image/fitness-main.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 675px;
+    padding: 95px 60px 0 60px;
+
+    color: #fff;
+}
+
+.hero__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 83px;
+
+    font-size: 20px;
+    margin-bottom: 150px;
+}
+
+.main__title {
+    font-size: 60px;
+    letter-spacing: 13px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.hero__text {
+    width: 32%;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.get__started {
+    display: block;
+    margin: auto;
+    width: 9%;
+    padding: 10px 0;
+
+    background-color: #D01919;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* FEATURES */
+
+.section__title {
+    padding: 40px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
+}
+.horizontal_divider {
+    width: 3%;
+    height: 3px;
+    background-color: #D01919;
+    margin: auto;
+    margin-bottom: 38px;
+}
+
+.feat__list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    margin-bottom: 80px;
+}
+
+.feature {
+    width: 30%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+}
+
+.feat__list img {
+    width: 12%;
+}
+
+.feat__title {
+    color: #D01919;
+    text-align: center;
+    font-size: 20px;
+}
+
+.feat__text {
+    width: 60%;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+/* COACHES */
+
+.coaches {
+    background-color: #EFEFEF;
+}
+
+.coaches__list {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    padding-bottom: 80px;
+}
+
+.coaches__card {
+    width: 20%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.coach__img {
+    width: 100%;
+    object-fit: fill;
+    border-radius: 5px;
+}
+
+.coach__name {
+    font-size: 20px;
+}
+
+.coach__type {
+    font-size: 16px;
+    color: #D01919;
+    margin-bottom: 12px;
+}
+
+.coach__text {
+    color: #AEA9B8;
+    width: 90%;
+    margin: auto;
+    font-size: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #D01919;
+}
+
+.copyrights {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 20px;
+}

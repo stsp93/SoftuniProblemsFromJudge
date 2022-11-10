@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Calculator</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/48ed1957d1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <article class="container">
+      <img src="./image/calculator.png" alt="" class="main-img" />
+      <article class="calculator">
+        <h2 class="title">FITNESS CALCULATOR</h2>
+        <div class="btns">
+          <button class="us">Standart units (US)</button>
+          <button class="metric">Metric units</button>
+        </div>
+        <form action="submit">
+          <label class="form-gender-label" for="gender">Gender</label>
+          <div class="gender-select-wrapper">
+            <select name="gender" id="genders">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+            <input type="number" placeholder="Years..." />
+          </div>
+          <div class="weight-container">
+              <label for="" class="weight">Weight </label>
+              <input type="number" placeholder="Pounds..." />
+          </div>
+          <div class="height-container">
+              <label class="height" for="height">Height</label>
+              <div class="height-inputs">
+                <input type="number" placeholder="Feet..." />
+                <input type="number" placeholder="Inches..." />
+              </div>
+          </div>
+        </form>
+        <button class="calculate">Calculate</button>
+      </article>
+    </article>
+  </body>
+</html>
