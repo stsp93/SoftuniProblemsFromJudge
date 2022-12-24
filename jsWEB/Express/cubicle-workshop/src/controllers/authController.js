@@ -6,16 +6,25 @@ router.get('/register', (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-
-    const user =await userService.register(req.body)
-
-   if(!user)  return res.render('404');
-
-   return res.redirect('/');
+    try {
+        await userService.register(req.body)
+    } catch {
+        return res.render('404');
+    }
+    return res.redirect('/auth/login');
 })
 
 router.get('/login', (req, res) => {
     res.render('auth/loginPage')
+})
+
+router.post('/login', async (req, res) => {
+    try {
+        await userService.login(req.body)
+        return res.redirect('/');
+    } catch {
+        return res.render('404');
+    }
 })
 
 

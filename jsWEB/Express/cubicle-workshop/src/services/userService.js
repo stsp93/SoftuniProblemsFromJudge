@@ -4,15 +4,22 @@ const { User } = require('../models/User');
 
 
 exports.register = async (userInput) => {
-    if(userInput.password !== userInput.repeatPassword) {
-        return;
+    if (userInput.password !== userInput.repeatPassword) {
+        throw new Error('Passowords don\'t match')
     }
 
     const hash = await bcrypt.hash(userInput.password, saltRounds);
-    const user = {username:userInput.username, hash}
-    try {
-        return await User.create(user)
-    } catch {
-        return;
-    }
+    const user = { username: userInput.username, hash }
+
+
+    return await User.create(user)
+
+}
+
+exports.login = async (userInput) => {
+    const user = await User.findOne({username:userInput.username});
+
+    
+    if(!await bcrypt.compare(userInput.password, user.hash)) throw new Error('invalid password');
+
 }
