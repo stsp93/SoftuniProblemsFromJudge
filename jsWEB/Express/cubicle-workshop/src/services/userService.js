@@ -17,9 +17,14 @@ exports.register = async (userInput) => {
 }
 
 exports.login = async (userInput) => {
-    const user = await User.findOne({username:userInput.username});
+    try {
+        const user = await User.findOne({ username: userInput.username });
 
-    
-    if(!await bcrypt.compare(userInput.password, user.hash)) throw new Error('invalid password');
+        if (!await bcrypt.compare(userInput.password, user.hash)) throw new Error('invalid password');
+
+        return user.username;
+    } catch {
+        throw new Error('Username or Password are incorrect');
+    }
 
 }
