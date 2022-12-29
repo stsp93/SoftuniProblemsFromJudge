@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render('auth/loginPage')
+    res.render('auth/loginPage');
 })
 
 router.post('/login', async (req, res) => {
@@ -43,7 +43,6 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', (req, res) => {
     res.clearCookie('session');
-    console.log('clear');
     res.redirect('/')
 })
 

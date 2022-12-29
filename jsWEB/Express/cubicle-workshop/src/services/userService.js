@@ -28,3 +28,5 @@ exports.login = async (userInput) => {
     }
 
 }
+
+exports.getUserId = async (username) => await User.findOne({ username });

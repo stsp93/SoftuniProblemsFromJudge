@@ -18,3 +18,9 @@ exports.auth = async (req, res, next) => {
 
     next();
 }
+
+exports.isAuth = (req, res, next) => {
+    
+
+    next()
+}
