@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
             })
         })
 
-        res.cookie('session', token, {httpOnly:true});
+        res.cookie('session', token, { httpOnly: true });
 
         return res.redirect('/');
     } catch {

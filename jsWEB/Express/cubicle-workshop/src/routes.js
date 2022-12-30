@@ -9,9 +9,9 @@ const authController = require('./controllers/authController.js')
 
 
 router.use('/', homeController);
-router.use('/create', createController);
 router.use('/details', detailsController);
 router.use('/auth', authController)
+router.use('/create', createController);
 router.use('*', errorController);
 
 

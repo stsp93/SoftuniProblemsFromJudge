@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { isAuth } = require('../middlewares/authMiddleware');
 const { getAllAccessories, getAvailableAccessories } = require('../services/accessoryService');
 const cubeService = require('../services/cubeService')
 
@@ -8,11 +9,16 @@ router.get('/:id', async (req,res) => {
     res.render('details',cube);
 })
 
+router.use(isAuth)
+
 router.get('/:id/attach-accessory', async (req, res) => {
     const cube = await cubeService.getCube(req.params.id).lean();
-    const accessories = await getAvailableAccessories(cube.accessories).lean()
-    console.log(accessories);
-    res.render('accessories/attach',{cube, accessories})
+    const accessories = await getAvailableAccessories(cube.accessories).lean();
+    
+    if(req.userId._id.equals(cube.ownerId)) {
+      return res.render('accessories/attach',{cube, accessories})
+    }
+    return res.render('404')
 })
 
 router.post('/:cubeId/attach-accessory', async (req, res) => {
@@ -21,7 +27,11 @@ router.post('/:cubeId/attach-accessory', async (req, res) => {
 
     await cubeService.attachAccessory(cubeId, accessoryId);
 
-    res.redirect(`/details/${cubeId}`)
+    
+    if(req.userId._id == cubeId) {
+        return res.redirect(`/details/${cubeId}`);
+      }
+      return res.render('404')
 })
 
 router.get('/:id/edit', async (req, res) => {

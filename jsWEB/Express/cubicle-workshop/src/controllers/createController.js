@@ -2,7 +2,9 @@ const router = require('express').Router()
 const cubeService = require('../services/cubeService.js')
 const accessoryService = require('../services/accessoryService');
 const { getUserId } = require('../services/userService.js');
+const { isAuth } = require('../middlewares/authMiddleware.js');
 
+router.use(isAuth);
 
 router.route('/accessory')
     .get((req, res) =>

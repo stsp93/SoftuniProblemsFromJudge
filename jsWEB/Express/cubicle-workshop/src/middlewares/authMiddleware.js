@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util')
 const { secret } = require('../config/serviceConfig');
+const { getUserId } = require('../services/userService');
 
 const tokenVerify = promisify(jwt.verify)
 
@@ -19,8 +20,19 @@ exports.auth = async (req, res, next) => {
     next();
 }
 
-exports.isAuth = (req, res, next) => {
-    
+exports.isAuth = async (req, res, next) => {
+    req.userId = await getUserId(req.user)
+    if(!req.user) {
+       return res.status(403).render('You don\'t have permission');
+    }
 
     next()
+}
+
+exports.isOwner = (req, res, next) => {
+    if(!req.user) {
+        return res.status(403).render('You don\'t have permission');
+     }
+ 
+     next()
 }
