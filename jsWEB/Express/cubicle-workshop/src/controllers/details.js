@@ -26,12 +26,13 @@ router.get('/:id/attach-accessory', async (req, res) => {
 
 router.post('/:cubeId/attach-accessory', async (req, res) => {
     const cubeId = req.params.cubeId
+    const cube = await cubeService.getCube(cubeId)
     const accessoryId = req.body.accessory
 
     await cubeService.attachAccessory(cubeId, accessoryId);
 
     
-    if(req.userId._id.equals(cubeId)) {
+    if(req.userId._id.equals(cube.ownerId)) {
         return res.redirect(`/details/${cubeId}`);
       }
       return res.render('404')
