@@ -22,17 +22,13 @@ exports.auth = async (req, res, next) => {
 
 exports.isAuth = async (req, res, next) => {
     req.userId = await getUserId(req.user)
-    if(!req.user) {
-       return res.status(403).render('You don\'t have permission');
-    }
-
     next()
 }
 
-exports.isOwner = (req, res, next) => {
-    if(!req.user) {
-        return res.status(403).render('You don\'t have permission');
-     }
+// exports.isOwner = (req, res, next) => {
+//     if(!req.user) {
+//         return res.status(403).send('You don\'t have permission');
+//      }
  
-     next()
-}
+//      next()
+// }

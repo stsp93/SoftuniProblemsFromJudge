@@ -8,6 +8,13 @@ module.exports = (app) => {
     app.engine('hbs', hbs.engine({ extname: 'hbs' }));
     app.set('view engine', 'hbs');
 
+    // const hbsCreate = hbs.create({})
+    // hbsCreate.registerHelper('select', function(selected, options) {
+    //     return options.fn(this).replace(
+    //         new RegExp(' value=\"' + selected + '\"'),
+    //         '$& selected="selected"');
+    // });
+
     app.use(express.static('static'));
     app.use(express.urlencoded({ extended: false }));
     app.use(cookieParser())

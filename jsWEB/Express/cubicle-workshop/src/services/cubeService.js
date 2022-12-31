@@ -26,3 +26,19 @@ exports.attachAccessory = async function (cubeId, accessoryId) {
 
     return cube;
 }
+
+exports.deleteCube = async function(cubeId) {
+    try {
+        await Cube.findByIdAndDelete(cubeId)
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.updateCube = async function(cubeId, cube) {
+    try {
+        await Cube.findByIdAndUpdate(cubeId,cube)
+    } catch (err) {
+        console.log(err);
+    }
+}
