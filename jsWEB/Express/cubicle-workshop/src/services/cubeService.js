@@ -2,7 +2,13 @@ const { Accessory } = require('../models/Accessory');
 const { Cube } = require('../models/Cube');
 
 exports.save = async function (cube) {
-    return await Cube.create(cube)
+    try {
+        await Cube.create(cube)
+
+    } catch (error) {
+        console.log(Object.keys(error.errors) + ' is incorrect');
+        throw error
+    }
 }
 
 exports.getCube = function (id) {
@@ -28,17 +34,9 @@ exports.attachAccessory = async function (cubeId, accessoryId) {
 }
 
 exports.deleteCube = async function(cubeId) {
-    try {
         await Cube.findByIdAndDelete(cubeId)
-    } catch (err) {
-        console.log(err);
-    }
 }
 
 exports.updateCube = async function(cubeId, cube) {
-    try {
         await Cube.findByIdAndUpdate(cubeId,cube)
-    } catch (err) {
-        console.log(err);
-    }
 }

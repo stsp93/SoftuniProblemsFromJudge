@@ -9,11 +9,12 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-        await userService.register(req.body)
-    } catch {
-        return res.render('404');
+        await userService.register(req.body);
+
+        res.redirect('/auth/login');
+    } catch (error) {
+        res.render('auth/registerPage', {error:error.message});
     }
-    return res.redirect('/auth/login');
 })
 
 router.get('/login', (req, res) => {
@@ -35,9 +36,9 @@ router.post('/login', async (req, res) => {
 
         res.cookie('session', token, { httpOnly: true });
 
-        return res.redirect('/');
-    } catch {
-        return res.render('404');
+        res.redirect('/');
+    } catch (error) {
+        res.render('auth/loginPage', {error:error.message});
     }
 })
 

@@ -15,8 +15,8 @@ router.route('/accessory')
         try {
             await accessoryService.save(accessory);
             res.redirect('/');
-        } catch (err) {
-            res.send(err);
+        } catch (error) {
+            res.render('accessories/createAccessory', {error:`${Object.keys(error.errors)} is incorrect`});
         }
     })
 
@@ -30,8 +30,9 @@ router.route('/')
         try {
             await cubeService.save(cube);
             res.redirect('/');
-        } catch (err) {
-            res.send(err);
+        } catch (error) {
+            // console.log(error.message);
+            res.render('create', {error:`${Object.keys(error.errors)} is incorrect`});
         }
     })
 

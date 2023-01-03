@@ -11,8 +11,12 @@ exports.register = async (userInput) => {
     const hash = await bcrypt.hash(userInput.password, saltRounds);
     const user = { username: userInput.username, hash }
 
+    try {
+        return await User.create(user)
 
-    return await User.create(user)
+    } catch {
+        throw new Error('Username is already taken')
+    }
 
 }
 
