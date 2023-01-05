@@ -10,7 +10,7 @@ const app = express();
 app.engine('hbs', hbs.engine({extname:'hbs'}));
 app.set('view engine','hbs');
 app.use(express.static('static'));
-app.use(urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(router)
 
