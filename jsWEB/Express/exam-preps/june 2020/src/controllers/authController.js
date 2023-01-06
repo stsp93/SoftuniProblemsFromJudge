@@ -1,5 +1,16 @@
 const router = require('express').Router();
+const { isGuest } = require('../middlewares/authMiddleware');
 const userService = require('../services/userService');
+
+
+router.get('/logout',(req, res) => {
+    userService.logout(req.user.token);
+    res.clearCookie('session');
+    res.redirect('/')
+})
+
+// Guest Session handling
+router.use('/',isGuest)
 
 router.get('/register',(req, res) => {
 

@@ -1,7 +1,14 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../models/User');
 const jwt = require('jsonwebtoken');
-const constants = require('../config/constants');
+const { SALT_ROUNDS, JWT_SECRET } = require('../config/constants');
+const { promisify } = require('util');
+
+const verifyTokenAsync = promisify(jwt.verify)
+
+const blacklist = new Set();
+blacklist.add('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJpZCI6IjYzYjcyYjhkZDY2NThiZmEyMDM0N2QyOCIsImlhdCI6MTY3MzAxMTgwNywiZXhwIjoxNjczMDk4MjA3fQ.pDOiXPDukWryctJNaWA_EEm1g6TAxYtaGexwSy1wm1k');
+
 
 async function register(user) {
     const { username, password, repeatPassword } = user;
@@ -10,7 +17,7 @@ async function register(user) {
     if (password !== repeatPassword) throw new Error('Passwords don\'t match');
 
     //Hash Password
-    const hashedPassword = await bcrypt.hash(password, constants.SALT_ROUNDS);
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
     const payload = {
         username,
         password: hashedPassword,
@@ -32,7 +39,6 @@ async function login(user) {
 
     // Check username and pass
     const existingUser = await User.findOne({ username });
-    console.log(existingUser);
     if (existingUser && await bcrypt.compare(password, existingUser.password)) {
 
         // Sign JWT
@@ -40,17 +46,17 @@ async function login(user) {
             username: existingUser.username,
             id: existingUser._id
         }
-        
+
         const token = new Promise((resolve, reject) => {
-            jwt.sign(payload, constants.JWT_SECRET, {expiresIn:'1d'},(err, token) => {
-                if(err) {
+            jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' }, (err, token) => {
+                if (err) {
                     console.log(err);
                     reject('Something went wrong')
                 } else {
                     resolve(token)
                 }
             })
-        })   
+        })
 
         // return token
         return token;
@@ -60,8 +66,25 @@ async function login(user) {
     }
 }
 
+async function logout(token) {
+    blacklist.add(token)
+
+}
+
+const verifyToken = async (token) => {
+    if (!blacklist.has(token)) {
+        return await verifyTokenAsync(token, JWT_SECRET);
+    } else {
+        throw new Error('Token is blacklisted');
+    }
+}
+
+
+
 
 module.exports = {
     register,
-    login
+    login,
+    verifyToken,
+    logout
 }
