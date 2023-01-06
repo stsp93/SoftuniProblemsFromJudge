@@ -13,17 +13,18 @@
       <ul>
         <li><a href="/">Home </a></li>
         {{#if user}}
-        <li><a href="/user/logout">Logout</a></li>
+          <li><a href="/user/logout">Logout</a></li>
         {{else}}
-        <li><a href="/user/login">Login</a></li>
-        <li><a href="/user/register">Register</a></li>
+          <li><a href="/user/login">Login</a></li>
+          <li><a href="/user/register">Register</a></li>
         {{/if}}
       </ul>
     </nav>
-
-    <section class="notifications error">
-      <p>Message...{{user}}</p>
-    </section>
+    {{#if error}}
+      <section class="notifications error">
+        <p>{{error}}</p>
+      </section>
+    {{/if}}
     {{{body}}}
     <footer>
       <div>© 2020

@@ -7,7 +7,6 @@ const { promisify } = require('util');
 const verifyTokenAsync = promisify(jwt.verify)
 
 const blacklist = new Set();
-blacklist.add('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJpZCI6IjYzYjcyYjhkZDY2NThiZmEyMDM0N2QyOCIsImlhdCI6MTY3MzAxMTgwNywiZXhwIjoxNjczMDk4MjA3fQ.pDOiXPDukWryctJNaWA_EEm1g6TAxYtaGexwSy1wm1k');
 
 
 async function register(user) {
@@ -15,6 +14,8 @@ async function register(user) {
 
     //Handle mismatching passwords
     if (password !== repeatPassword) throw new Error('Passwords don\'t match');
+    const emptyFields = Object.entries(user).filter(([k,v]) => v === '')
+    if(emptyFields.length > 0) throw new Error(`${emptyFields.map(([k,v]) => `${k[0].toUpperCase() + k.slice(1)} shouldn\'t be empty`).join('\n')}`)
 
     //Hash Password
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);

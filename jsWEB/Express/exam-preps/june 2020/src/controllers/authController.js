@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { isGuest } = require('../middlewares/authMiddleware');
+const { handleError } = require('../utils/errorHandlingUtil');
 const userService = require('../services/userService');
 
 
@@ -21,10 +22,9 @@ router.post('/register',async (req, res) => {
     try {
         await userService.register(user);
         
-        res.status(201).redirect('/login');
+        res.status(201).redirect('/user/login');
     }catch(error) {
-        console.error(error);
-        res.status(400).render('register');
+        res.status(400).render('register', handleError(error));
     }
 
 })
@@ -43,8 +43,8 @@ router.post('/login', async (req, res) => {
         res.cookie('session', token,{httpOnly:true});
         res.redirect('/');
     } catch (error) {
-        console.error(error);
-        res.status(400).render('login');
+
+        res.status(400).render('login', handleError(error));
     }
 })
 
