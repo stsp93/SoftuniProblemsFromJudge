@@ -3,17 +3,18 @@ const { Schema, model } = require('mongoose');
 const playSchema = new Schema({
     title: {
         type: String,
-        required: true,
+        required: [true, 'Title is required'],
         unique: true
     },
     description: {
         type: String,
-        required: true,
+        required: [true, 'Description is required'],
         maxLength: [50, 'Description should be less or equal than 50 symbols']
     },
     imageUrl: {
         type: String,
-        required: true,
+        match:[/^https:\/\//,'Invalid URL'],
+        required: [true, 'Image Url is required'],
     },
     isPublic: {
         type: Boolean,
@@ -21,7 +22,8 @@ const playSchema = new Schema({
     },
     createdAt: {
         type: Schema.Types.Mixed,
-        required: true
+        required: true,
+        default: () => new Date().toString(),
     },
     usersLiked: [
         {

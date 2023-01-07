@@ -14,11 +14,13 @@ async function register(user) {
 
     //Handle mismatching passwords
     if (password !== repeatPassword) throw new Error('Passwords don\'t match');
-    const emptyFields = Object.entries(user).filter(([k,v]) => v === '')
-    if(emptyFields.length > 0) throw new Error(`${emptyFields.map(([k,v]) => `${k[0].toUpperCase() + k.slice(1)} shouldn\'t be empty`).join('\n')}`)
+    if(password.length <3) throw new Error('Passwords should be at least 3 characters');
 
     //Hash Password
-    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    let hashedPassword;
+    if(password) {
+        hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    }
     const payload = {
         username,
         password: hashedPassword,
@@ -31,7 +33,7 @@ async function register(user) {
     } catch (error) {
         // Handle duplicate username error
         if (error.name === 'MongoServerError' && error.code === 11000) throw new Error('Username already exist');
-        throw error
+        throw new Error(Object.values(error.errors).join('<br>'));
     }
 }
 
