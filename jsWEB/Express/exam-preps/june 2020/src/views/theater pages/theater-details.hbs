@@ -3,9 +3,7 @@
     <section class="details">
       <h1>Theater title: {{title}}</h1>
       <div>
-        <img
-          src="{{imageUrl}}"
-        />
+        <img src="{{imageUrl}}" />
       </div>
     </section>
 
@@ -15,12 +13,18 @@
         {{description}}
       </p>
       <div class="buttons">
+        {{#if isOwner}}
         <a class="btn delete" href="{{_id}}/delete">Delete</a>
         <a class="btn edit" href="{{_id}}/edit">Edit</a>
+        {{/if}}
         {{#if hasLiked}}
-        <span class="liked">You have already liked this play!</span>
+          {{#unless isOwner}}
+            <span class="liked">You have already liked this play!</span>
+          {{/unless}}
         {{else}}
-        <a class="btn like" href="{{_id}}/like">Like</a>
+          {{#unless isOwner}}
+            <a class="btn like" href="{{_id}}/like">Like</a>
+          {{/unless}}
         {{/if}}
       </div>
     </section>

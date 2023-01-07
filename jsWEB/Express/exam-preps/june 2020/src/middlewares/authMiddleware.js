@@ -1,4 +1,3 @@
-const { Types } = require("mongoose");
 const { Play } = require("../models/Play");
 const { verifyToken } = require("../services/userService");
 
@@ -49,8 +48,9 @@ async function hasLiked(req, res, next) {
 
 async function isOwner(req,res, next) {
     const play = await Play.findById(req.params.id);
-    res.locals.isOwner =  play._id == req.user.id;
-    req.user.isOwner = play._id == req.user.id;
+    res.locals.isOwner =  play.ownerId.equals(req.user.id)
+    req.user.isOwner =  play.ownerId.equals(req.user.id)
+    next();
 }
 
 
