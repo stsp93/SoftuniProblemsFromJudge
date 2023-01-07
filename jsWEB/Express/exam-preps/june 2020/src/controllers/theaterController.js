@@ -19,4 +19,12 @@ router.post('/create', async (req,res) => {
     }
 })
 
+router.get('/:id', async (req,res) => {
+    const play = await playService.getPlay(req.params.id);
+    if(play) {
+       return res.render('theater pages/theater-details', play)
+    }
+    res.redirect('/')
+})
+
 module.exports = router

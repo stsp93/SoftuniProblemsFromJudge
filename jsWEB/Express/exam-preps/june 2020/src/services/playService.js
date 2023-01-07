@@ -1,8 +1,11 @@
 const { Play } = require("../models/Play");
 
 async function getAllPlays() {
-    return await Play.find({}).select('title').select('usersLiked').select('imageUrl').lean()
-    return await Play.find().lean()
+    return await Play.find({isPublic:true}).select('title').select('usersLiked').select('imageUrl').lean()
+}
+
+async function getPlay(id) {
+    return await Play.findOne({_id:id, isPublic:true}).lean();
 }
 
 async function createPlay(play) {
@@ -22,5 +25,6 @@ async function createPlay(play) {
 
 module.exports = {
     createPlay,
-    getAllPlays
+    getAllPlays,
+    getPlay
 }
