@@ -1,7 +1,20 @@
+const { isAuth, hasLiked } = require('../middlewares/authMiddleware');
 const playService = require('../services/playService');
 const { handleError } = require('../utils/errorHandlingUtil');
 
 const router = require('express').Router();
+
+
+router.get('/:id',hasLiked, async (req, res) => {
+
+    const play = await playService.getPlay(req.params.id);
+    if (play) {
+        return res.render('theater pages/theater-details', play)
+    }
+    res.redirect('/')
+})
+
+router.use('/', isAuth);
 
 router.get('/create', (req, res) => {
 
@@ -10,6 +23,7 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     const play = req.body;
+    play.ownerId = req.user.id;
     try {
         await playService.createPlay(play)
         res.status(201).redirect('/')
@@ -19,13 +33,7 @@ router.post('/create', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
-    const play = await playService.getPlay(req.params.id);
-    if (play) {
-        return res.render('theater pages/theater-details', play)
-    }
-    res.redirect('/')
-})
+
 
 router.get('/:id/edit', async (req, res) => {
     const play = await playService.getPlay(req.params.id);
@@ -53,7 +61,15 @@ router.get('/:id/delete', async (req, res) => {
         res.status(400).render('theater pages/theater-details', handleError(error));
     }
 })
-router.get('/:id/like', (req, res) => {
-
+router.get('/:id/like',hasLiked, async (req, res) => {
+    
+    try {
+        if(req.user.hasLiked) throw new Error('You already have liked this post')
+        await playService.likePlay(req.params.id, req.user.id);
+        res.redirect(`/theater/${req.params.id}`)
+    } catch (error) {
+        console.log(error);
+        res.render('theater pages/theater-details', handleError(error))
+    }
 })
 module.exports = router

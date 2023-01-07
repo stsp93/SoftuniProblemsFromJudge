@@ -1,4 +1,5 @@
 const { Play } = require("../models/Play");
+const { User } = require("../models/User");
 const { handleMongooseError } = require("../utils/errorHandlingUtil");
 
 async function getAllPlays() {
@@ -9,11 +10,14 @@ async function getPlay(id) {
     return await Play.findOne({ _id: id, isPublic: true }).lean();
 }
 
+
+
 async function createPlay(play) {
     if (play['check-box']) {
         play.isPublic = true;
         delete play['check-box'];
     }
+    
 
     try {
         await Play.create(play);
@@ -31,7 +35,6 @@ async function updatePlay(id, editedPlay) {
     play.title = editedPlay.title;
     play.imageUrl = editedPlay.imageUrl;
     play.description = editedPlay.description;
-    console.log(editedPlay.isPublic);
     try {
         await play.save()
     } catch (error) {
@@ -46,11 +49,23 @@ async function deletePlay(id) {
         handleMongooseError(error)
     }
 }
+async function likePlay(playId, userId) {
+    const play = await Play.findById(playId)
+    const user = await User.findById(userId);
+    play.usersLiked.push(user)
+ 
+    try {
+        play.save();
+    } catch(error) {
+        handleMongooseError(error)
+    }
+}
 
 module.exports = {
     createPlay,
     getAllPlays,
     getPlay,
     updatePlay,
-    deletePlay
+    deletePlay,
+    likePlay
 }

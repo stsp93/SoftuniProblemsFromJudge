@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const playSchema = new Schema({
     title: {
@@ -25,6 +25,11 @@ const playSchema = new Schema({
         required: true,
         default: () => new Date().toString(),
     },
+    ownerId: {
+        type: Schema.Types.ObjectId,
+        ref:'User',
+    }
+    ,
     usersLiked: [
         {
             type: Schema.Types.ObjectId,

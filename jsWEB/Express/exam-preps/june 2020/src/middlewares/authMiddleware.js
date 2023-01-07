@@ -1,3 +1,5 @@
+const { Types } = require("mongoose");
+const { Play } = require("../models/Play");
 const { verifyToken } = require("../services/userService");
 
 
@@ -7,9 +9,10 @@ async function auth(req, res, next) {
     if (token) {
         try {
             const decodedToken = await verifyToken(token)
+
             req.user = {
                 username: decodedToken.username,
-                id: decodedToken._id,
+                id: decodedToken.id,
                 token
             };
             res.locals.user = decodedToken.username;
@@ -37,9 +40,24 @@ function isGuest(req, res, next) {
     next()
 }
 
+async function hasLiked(req, res, next) {
+    const play = await Play.findById(req.params.id);
+    res.locals.hasLiked =  play.usersLiked.includes(req.user.id);
+    req.user.hasLiked = play.usersLiked.includes(req.user.id);
+    next()
+}
+
+async function isOwner(req,res, next) {
+    const play = await Play.findById(req.params.id);
+    res.locals.isOwner =  play._id == req.user.id;
+    req.user.isOwner = play._id == req.user.id;
+}
+
 
 module.exports = {
     isAuth,
     isGuest,
+    hasLiked,
+    isOwner,
     auth
 }
