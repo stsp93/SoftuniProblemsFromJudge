@@ -33,7 +33,7 @@ async function register(user) {
     } catch (error) {
         // Handle duplicate username error
         if (error.name === 'MongoServerError' && error.code === 11000) throw new Error('Username already exist');
-        throw new Error(Object.values(error.errors).join('<br>'));
+        handleMongooseError(error);
     }
 }
 
