@@ -12,8 +12,13 @@ const handleMongooseError = (error) => {
     throw new Error(error.message)
 }
 
+const isOwnerCheck = function(userId, ownerId) {
+    if(!ownerId.equals(userId)) throw new Error('You don\'t have permission to do that');
+}
+
 module.exports = {
     handleError,
-    handleMongooseError
+    handleMongooseError,
+    isOwnerCheck
 }
 

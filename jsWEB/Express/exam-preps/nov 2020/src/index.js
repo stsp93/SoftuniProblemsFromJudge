@@ -8,10 +8,22 @@ const { auth } = require('./middlewares/authMiddleware');
 
 const app = express();
 
-app.engine('hbs', hbs.engine({extname:'hbs'}));
+// hbs.create({
+//     helpers: {
+//         sliceDate: function (date) { return date.slice(0, 25) }
+//     }
+// })
+// hbs.registerHelper();
+
+app.engine('hbs', hbs.engine({
+    extname: 'hbs',
+    helpers: {
+        sliceDate: function (date) { return date.toString().slice(0, 25) }
+    }
+}));
 app.set('view engine', 'hbs');
 app.use(express.static('static'));
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(COOKIE_SECRET));
 app.use(auth)
 app.use(router)
