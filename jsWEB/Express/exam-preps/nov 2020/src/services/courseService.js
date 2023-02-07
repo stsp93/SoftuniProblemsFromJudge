@@ -14,7 +14,7 @@ async function create(course) {
 }
 
 async function getAll(query = '') {
-    return await Course.find({title: {$regex: new RegExp(query, 'gi')}}).lean();
+    return await Course.find({title: new RegExp(query, 'gi')}).lean();
 }
 
 
