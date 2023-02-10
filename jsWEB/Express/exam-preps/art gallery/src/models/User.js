@@ -28,6 +28,17 @@ const userSchema = new Schema({
             ref: 'Publication'
         }
     ],
+}, {
+    toObject :{
+        virtuals:true
+    }
+})
+
+userSchema.virtual('owned').get(function() {
+    return this.myPublications.map(p => p.title).join(', ')
+})
+userSchema.virtual('shared').get(function() {
+    return this.publicationShared.map(p => p.title).join(', ')
 })
 
 userSchema.index({ username: 1 }, {

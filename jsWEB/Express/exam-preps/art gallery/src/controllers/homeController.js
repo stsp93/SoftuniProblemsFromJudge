@@ -10,8 +10,7 @@ router.get('/gallery',async (req, res) => {
 
 router.get('/profile',isUser,async (req, res) => {
         const userPubs = (await userService.getUserPublications(req.user.id)).toObject();
-        userPubs.owned = userPubs.myPublications.map(p => p.title).join(', ')
-        userPubs.shared = userPubs.publicationShared.map(p => p.title).join(', ')
+        console.log(userPubs);
         res.render('profileView', {userPubs})
 })
 
