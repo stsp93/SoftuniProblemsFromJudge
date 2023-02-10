@@ -106,7 +106,7 @@ router.get('/search', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const crypto = await cryptoService.getById(req.params.id);
-    crypto.isOwner = isOwnerCheck(crypto.owner, req.user?.id);
+    crypto.isOwner = isOwnerCheck(crypto.owner?._id, req.user?.id);
     crypto.isBought = crypto.buyers.some(id => id.equals(req.user?.id));
     res.render('detailsView', { crypto })
 })
