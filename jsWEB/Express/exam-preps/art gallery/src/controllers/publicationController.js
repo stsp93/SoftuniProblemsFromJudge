@@ -77,9 +77,11 @@ router.get('/:id/share',isUser, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const publication = (await publicationService.getById(req.params.id)).toObject();
+    console.log(publication);
     publication.isAuthor = isOwnerCheck(publication.author?._id, req.user?.id);
     publication.isShared = publication.usersShared.some(id => id.equals(req.user?.id));
     res.render('detailsView', { publication})
+
 })
 
 module.exports = router

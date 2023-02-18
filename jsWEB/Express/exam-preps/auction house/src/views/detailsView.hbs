@@ -32,6 +32,7 @@
           <div>
             Current price: $<strong>{{auction.price}}</strong>
           </div>
+          {{#if user}}
           {{#if auction.isOwner}}
             <div>
               <!-- If there is a bidder -->
@@ -74,6 +75,7 @@
                 for this auction
               </div>
             {{/unless}}
+          {{/if}}
           {{/if}}
         </div>
 

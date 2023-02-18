@@ -35,10 +35,10 @@ const userSchema = new Schema({
 })
 
 userSchema.virtual('owned').get(function() {
-    return this.myPublications.map(p => p.title).join(', ')
+    return this.myPublications?.map(p => p).join(', ')
 })
 userSchema.virtual('shared').get(function() {
-    return this.publicationShared.map(p => p.title).join(', ')
+    return this.publicationShared?.map(p => p).join(', ')
 })
 
 userSchema.index({ username: 1 }, {
